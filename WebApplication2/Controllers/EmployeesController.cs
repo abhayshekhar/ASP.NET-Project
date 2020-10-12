@@ -73,7 +73,7 @@ namespace WebApplication2.Controllers
             }
         }
 
-        public HttpResponseMessage Put(int id, [FromBody]Employee employee)
+        public HttpResponseMessage Put(int id, [FromBody] Employee employee)
         {
             try
             {
