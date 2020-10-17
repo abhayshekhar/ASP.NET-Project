@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Serialization;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace WebApplication2
 {
@@ -20,6 +21,9 @@ namespace WebApplication2
             // remove xml formatter
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
+            //for cross origin connection //mirosoft.aspnet.webapi.cors download
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*"); // (origin,header,method)
+            config.EnableCors(cors);
             config.Formatters.JsonFormatter.SerializerSettings.Formatting =
                            Newtonsoft.Json.Formatting.Indented;
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
